@@ -1,9 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './Hero.module.css'
 import { useReveal } from '../hooks/useReveal'
+import { useParallax } from '../hooks/useParallax'
+import { useMagnet } from '../hooks/useMagnet'
+import { useParticles } from '../hooks/useParticles'
 
 export default function Hero() {
   const ref = useReveal(0, 0.1)
+  const { bgRef, gridRef } = useParallax()
+  const ctaRef = useMagnet(0.3)
+  const canvasRef = useRef(null)
+  useParticles(canvasRef)
   const [typed, setTyped] = useState('')
   const fullText = 'Software Engineer'
 
@@ -22,8 +29,9 @@ export default function Hero() {
 
   return (
     <section id="hero" className={styles.hero}>
-      <div className={styles.bg} />
-      <div className={styles.grid} />
+      <div ref={bgRef} className={styles.bg} />
+      <div ref={gridRef} className={styles.grid} />
+      <canvas ref={canvasRef} className={styles.particles} />
       <div className={`${styles.left} reveal`} ref={ref}>
         <div className={styles.tag}>
           {typed}
@@ -34,7 +42,7 @@ export default function Hero() {
           Crafting robust, elegant software with precision and purpose.
           From automation systems to full-featured apps — code is my craft.
         </p>
-        <a href="#projects" className={styles.cta}><span>View my work</span></a>
+        <a ref={ctaRef} href="#projects" className={styles.cta}><span>View my work</span></a>
       </div>
       <div className={styles.right}>
         <div className={styles.badge}>

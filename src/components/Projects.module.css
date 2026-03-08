@@ -67,6 +67,12 @@
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 300;
   line-height: 1.1;
+  background-image: linear-gradient(#c9a84c, #c9a84c);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.4s ease;
+  cursor: default;
 }
 
 .desc {

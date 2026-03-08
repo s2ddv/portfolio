@@ -1,8 +1,10 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import Globe from './Globe'
 import { projects } from '../data/projects'
 import { useReveal } from '../hooks/useReveal'
 import { useFadeIn } from '../hooks/animations'
+import { useDrawUnderline } from '../hooks/useDrawUnderline'
+import { useMagnet } from '../hooks/useMagnet'
 import styles from './Projects.module.css'
 
 export default function Projects() {
@@ -10,7 +12,10 @@ export default function Projects() {
   const { visible, setVisible, fadeOut } = useFadeIn(false, 400)
   const globeRef = useRef(null)
   const headerRef = useReveal(0)
+  const underline = useDrawUnderline()
   const project = projects[current]
+
+  const magnetRefs = projects.map(() => useMagnet(0.4))
 
   function switchProject(idx) {
     if (idx === current) return
@@ -32,7 +37,14 @@ export default function Projects() {
       <div className={styles.stage}>
         <div className={[styles.info, visible && styles.infoVisible].filter(Boolean).join(' ')}>
           <div className={styles.counter}>{project.counter}</div>
-          <div className={styles.name}>{project.name}</div>
+          <div
+            ref={underline.ref}
+            className={styles.name}
+            onMouseEnter={underline.onEnter}
+            onMouseLeave={underline.onLeave}
+          >
+            {project.name}
+          </div>
           <p className={styles.desc}>{project.desc}</p>
           <div className={styles.stack}>
             {project.stack.map(s => <span key={s} className={styles.tag}>{s}</span>)}
@@ -45,7 +57,12 @@ export default function Projects() {
           </div>
           <div className={styles.nav}>
             {projects.map((_, i) => (
-              <button key={i} className={`${styles.numBtn}${i === current ? ` ${styles.active}` : ''}`} onClick={() => switchProject(i)}>
+              <button
+                key={i}
+                ref={magnetRefs[i]}
+                className={`${styles.numBtn}${i === current ? ` ${styles.active}` : ''}`}
+                onClick={() => switchProject(i)}
+              >
                 <span>{String(i+1).padStart(2,'0')}</span>
               </button>
             ))}
