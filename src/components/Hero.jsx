@@ -18,15 +18,32 @@ export default function Hero() {
 
   useEffect(() => {
     let i = 0
-    const interval = setInterval(() => {
-      if (i < fullText.length) {
+    let deleting = false
+    let timeout
+
+    const tick = () => {
+      if (!deleting) {
         setTyped(fullText.slice(0, i + 1))
         i++
+        if (i === fullText.length) {
+          deleting = true
+          timeout = setTimeout(tick, 1800)
+          return
+        }
       } else {
-        clearInterval(interval)
+        setTyped(fullText.slice(0, i - 1))
+        i--
+        if (i === 0) {
+          deleting = false
+          timeout = setTimeout(tick, 500)
+          return
+        }
       }
-    }, 80)
-    return () => clearInterval(interval)
+      timeout = setTimeout(tick, deleting ? 50 : 80)
+    }
+
+    timeout = setTimeout(tick, 80)
+    return () => clearTimeout(timeout)
   }, [])
 
   return (
@@ -37,7 +54,7 @@ export default function Hero() {
       <div className={`${styles.left} reveal`} ref={ref}>
         <div className={styles.tag}>
           {typed}
-          {typed.length < fullText.length && <span className={styles.cursor} />}
+          <span className={styles.cursor} />
         </div>
         <h1 ref={glitchRef}>Building things<br />that <em>matter</em></h1>
         <p className={styles.desc}>

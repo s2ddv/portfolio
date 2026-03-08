@@ -13,8 +13,8 @@ export default function Contact() {
       <h2 className={`${styles.heading} reveal`} ref={r2}>Let's<br /><em>work</em><br />together.</h2>
       <p className={`${styles.sub} reveal`} ref={r3}>Open to new opportunities, collaborations, and interesting projects. Let's build something great.</p>
       <div className={`${styles.links} reveal`} ref={r4}>
-        <a ref={magnetPrimary} href="mailto:you@email.com" className={`${styles.link} ${styles.primary}`}>Send a message</a>
-        <a ref={magnetSecondary} href="https://github.com/yourusername" className={`${styles.link} ${styles.secondary}`} target="_blank" rel="noreferrer">GitHub</a>
+        <a ref={magnetPrimary} href="https://mail.google.com/mail/?view=cm&to=souzasam2008@gmail.com&su=Hello%20Samuel" className={`${styles.link} ${styles.primary}`} target="_blank" rel="noreferrer">Send a message</a>
+        <a ref={magnetSecondary} href="https://github.com/s2ddv" className={`${styles.link} ${styles.secondary}`} target="_blank" rel="noreferrer">GitHub</a>
       </div>
     </section>
   )

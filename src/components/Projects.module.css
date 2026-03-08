@@ -179,7 +179,7 @@
   color: var(--blue);
 }
 .numBtn.active::before { transform: scale(1.5); }
-.numBtn.active span   { color: var(--navy); }
+.numBtn.active span { color: var(--white); }
 .numBtn:hover:not(.active) {
   border-color: var(--blue-dim);
   color: var(--blue-dim);

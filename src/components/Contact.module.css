@@ -12,7 +12,7 @@
   font-size: 0.58rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--gold-dim);
+  color: var(--blue-dim);
   display: flex;
   align-items: center;
   gap: 1.2rem;
@@ -52,12 +52,12 @@
 
 .primary {
   background: var(--blue);
-  color: var(--navy);
+  color: var(--white);
 }
 .primary:hover { background: var(--blue-light); }
 
 .secondary {
-  border: 1px solid var(--gold-dim);
+  border: 1px solid var(--blue-dim);
   color: var(--blue);
 }
 .secondary:hover { background: rgba(61,107,255,0.07); }
