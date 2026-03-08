@@ -1,132 +1,161 @@
-# 🌍 dev.folio — Portfolio
+# Samuel Barbosa — Portfolio
 
-Portfolio pessoal com globo interativo, tema azul escuro e dourado.
-
-## Stack
-
-- **React 18** + **Vite**
-- CSS Modules
-- Canvas API (globo 100% custom, sem lib externa)
+A high-end personal developer portfolio built with React + Vite. Features a dark aesthetic inspired by the anime Blue Lock, with interactive animations, an interactive 3D globe, and a skill ranking system.
 
 ---
 
-## Como rodar localmente
+## Tech Stack
 
-```bash
-# 1. Instalar dependências
-npm install
+- **React 18** — UI framework
+- **Vite** — build tool and dev server
+- **CSS Modules** — scoped component styling
+- **Lenis** — smooth scroll
+- **Canvas API** — interactive globe + particles
 
-# 2. Rodar em dev
-npm run dev
+---
+
+## Features
+
+### Animations & Interactions
+- **Typing loop** — "Software Engineer" types and deletes in a continuous loop
+- **Glitch effect** — h1 glitches on page load
+- **Scroll reveal** — sections fade in as they enter the viewport
+- **Parallax** — hero background and grid shift on mouse movement
+- **Magnetic buttons** — CTA and contact buttons attract to the cursor
+- **Draw underline** — project name animates an underline on hover
+- **Particle field** — 80 floating blue particles in the hero background
+- **Smooth scroll** — powered by Lenis
+
+### Globe (Projects section)
+- Pure Canvas API — no external libraries
+- Auto-spin with drag-to-rotate
+- Smooth lerp interpolation
+- Pulse ring animation on project switch
+- Continent outlines rendered from lat/lon coordinates
+
+### About section
+- Interactive skill grid — click a skill to update the chart
+- Animated pie chart showing proficiency percentage
+- Solo Leveling-inspired rank system (E → D → C → B → A → S → SS → SSS)
+- `#11` Nagi watermark in the background
+
+### Nav
+- Fixed navbar with active section indicator
+- Underline animates to the current section on scroll
+- Smooth scroll to section on click with fade transition
+
+---
+
+## Project Structure
+
+```
+src/
+  components/
+    Cursor.jsx / .module.css       # Custom cursor dot + ring
+    Navbar.jsx / .module.css       # Fixed nav with active indicator
+    Hero.jsx / .module.css         # Hero section with typing + particles
+    About.jsx / .module.css        # Skills pie chart + rank system
+    Globe.jsx / .module.css        # Interactive 3D globe (Canvas)
+    Projects.jsx / .module.css     # Projects with globe integration
+    Contact.jsx / .module.css      # Contact section
+    Footer.jsx / .module.css       # Footer
+  hooks/
+    animations.js                  # useReveal, useFadeIn, useGlobeAnimation, useCursorAnimation
+    useDrawUnderline.js            # Animated underline on hover
+    useGlitch.js                   # Glitch text effect
+    useMagnet.js                   # Magnetic button effect
+    useParallax.js                 # Mouse parallax for hero
+    useParticles.js                # Canvas particle field
+    useReveal.js                   # IntersectionObserver scroll reveal
+  data/
+    projects.js                    # Project data
+  assets/
+    nagi.png                       # Blue Lock artwork
+  App.jsx
+  main.jsx
+  index.css                        # Global styles + CSS variables
 ```
 
-Acesse: `http://localhost:5173`
+---
+
+## CSS Variables
+
+```css
+:root {
+  --dark:       #04080f;
+  --dark-mid:   #070d1a;
+  --dark-light: #0a1228;
+  --blue:       #3d6bff;
+  --blue-light: #6b8fff;
+  --blue-dim:   #1a3fff;
+  --white:      #e8e8f0;
+  --white-dim:  #8a8aaa;
+}
+```
 
 ---
 
-## Como customizar
+## Getting Started
 
-### Seus projetos
-Edite o arquivo `src/data/projects.js`:
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+---
+
+## Deploy
+
+Deployed via [Vercel](https://vercel.com).
+
+```bash
+npx vercel
+```
+
+---
+
+## Customization
+
+### Adding a project
+Edit `src/data/projects.js`:
 
 ```js
-export const projects = [
-  {
-    id: 1,
-    counter: '01 / 02',
-    name: 'Notification Bot',
-    desc: 'Descrição do projeto...',
-    stack: ['Node.js', 'WhatsApp API', 'Canvas LMS'],
-    link: 'https://github.com/SEU_USER/SEU_REPO',
-    type: 'Automation',
-    stackShort: 'Node.js',
-    status: 'Live',
-    rotY: 0.4,   // posição do globo (radianos)
-    rotX: 0.12,
-  },
-  // adicione mais projetos aqui...
+{
+  id: 3,
+  counter: '03 / 03',
+  name: 'Project Name',
+  desc: 'Project description.',
+  stack: ['Tech1', 'Tech2'],
+  link: 'https://github.com/...',
+  type: 'Web App',
+  stackShort: 'Tech1',
+  status: 'Live',
+  rotY: 1.2,   // globe rotation on select
+  rotX: 0.1,
+}
+```
+
+### Updating skills
+Edit the `skills` array in `src/components/About.jsx`:
+
+```js
+const skills = [
+  { name: 'JavaScript', level: 75 },
+  { name: 'Python',     level: 60 },
+  // ...
 ]
 ```
 
-### Suas skills
-No mesmo arquivo, edite o array `skills`:
-
-```js
-export const skills = ['Node.js', 'TypeScript', 'Prisma', ...]
-```
-
-### Seus links
-- **Email**: em `src/components/Contact.jsx`, troque `you@email.com`
-- **GitHub**: em `src/components/Contact.jsx`, troque o href do botão GitHub
-- **Links dos projetos**: em `src/data/projects.js`, campo `link`
+Rank thresholds: `E (<30)` `D (30)` `C (40)` `B (50)` `A (60)` `S (70)` `SS (80)` `SSS (90+)`
 
 ---
 
-## Deploy no Vercel (recomendado)
+## Author
 
-```bash
-# 1. Instalar Vercel CLI
-npm i -g vercel
-
-# 2. Fazer deploy
-vercel
-
-# Siga os prompts. Na primeira vez, vai pedir para conectar sua conta.
-```
-
-Ou faça pelo site:
-1. Acesse [vercel.com](https://vercel.com)
-2. Importe o repositório do GitHub
-3. Clique em **Deploy** — zero config necessário para Vite
-
----
-
-## Deploy no GitHub Pages
-
-```bash
-# 1. Instale o plugin
-npm install --save-dev gh-pages
-
-# 2. Adicione no package.json:
-"homepage": "https://SEU_USER.github.io/SEU_REPO",
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-
-# 3. No vite.config.js, adicione a base:
-export default defineConfig({
-  base: '/SEU_REPO/',
-  plugins: [react()],
-})
-
-# 4. Deploy
-npm run deploy
-```
-
----
-
-## Estrutura do projeto
-
-```
-portfolio/
-├── index.html
-├── vite.config.js
-├── package.json
-└── src/
-    ├── main.jsx
-    ├── App.jsx
-    ├── index.css          ← variáveis globais e reset
-    ├── data/
-    │   └── projects.js    ← ✏️ seus projetos e skills
-    └── components/
-        ├── Cursor.jsx     ← cursor customizado
-        ├── Navbar.jsx
-        ├── Hero.jsx
-        ├── About.jsx
-        ├── Globe.jsx      ← globo interativo (Canvas API)
-        ├── Projects.jsx   ← seção de projetos
-        ├── Contact.jsx
-        ├── Footer.jsx
-        └── useReveal.js   ← hook de scroll animation
-```
+**Samuel Barbosa** — [souzasam2008@gmail.com](mailto:souzasam2008@gmail.com)
