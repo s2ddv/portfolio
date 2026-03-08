@@ -1,0 +1,47 @@
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 4rem;
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+  background: rgba(5,12,26,0.75);
+  backdrop-filter: blur(20px);
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+
+.logo span {
+  color: var(--white-dim);
+  font-style: italic;
+}
+
+.links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.links a {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 600px) {
+  .nav { padding: 1.2rem 1.5rem; }
+  .links { gap: 1.2rem; }
+}

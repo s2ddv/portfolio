@@ -1,0 +1,56 @@
+:root {
+  --navy: #050c1a;
+  --navy-mid: #081428;
+  --navy-light: #0d1f3c;
+  --gold: #c9a84c;
+  --gold-light: #e8c870;
+  --gold-dim: #8a6d2f;
+  --white: #f0eade;
+  --white-dim: #a89f8c;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'DM Mono', monospace;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: none;
+}
+
+button {
+  cursor: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 960px) {
+  body {
+    cursor: auto;
+  }
+  a, button {
+    cursor: auto;
+  }
+}

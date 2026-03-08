@@ -1,0 +1,101 @@
+.about {
+  padding: 8rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  border-top: 1px solid rgba(201,168,76,0.08);
+}
+
+.label {
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.label::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: rgba(201,168,76,0.12);
+}
+
+.heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+.heading em { color: var(--gold); font-style: italic; }
+
+.text {
+  font-size: 0.73rem;
+  line-height: 2;
+  color: var(--white-dim);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.skillItem {
+  border: 1px solid rgba(201,168,76,0.12);
+  padding: 0.9rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--white-dim);
+  text-transform: uppercase;
+  transition: all 0.3s;
+  text-align: center;
+}
+.skillItem:hover {
+  border-color: var(--gold-dim);
+  color: var(--gold);
+  background: rgba(201,168,76,0.04);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.statRow {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+}
+
+.statNum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.63rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  line-height: 1.7;
+}
+
+@media (max-width: 960px) {
+  .about {
+    grid-template-columns: 1fr;
+    padding: 5rem 2rem;
+    gap: 3rem;
+  }
+}
