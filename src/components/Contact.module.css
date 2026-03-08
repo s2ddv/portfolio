@@ -1,6 +1,6 @@
 .contact {
   padding: 8rem 4rem;
-  border-top: 1px solid rgba(201,168,76,0.08);
+  border-top: 1px solid rgba(61,107,255,0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +27,7 @@
   font-weight: 300;
   line-height: 1;
 }
-.heading em { color: var(--gold); font-style: italic; }
+.heading em { color: var(--blue); font-style: italic; }
 
 .sub {
   font-size: 0.72rem;
@@ -51,16 +51,16 @@
 }
 
 .primary {
-  background: var(--gold);
+  background: var(--blue);
   color: var(--navy);
 }
-.primary:hover { background: var(--gold-light); }
+.primary:hover { background: var(--blue-light); }
 
 .secondary {
   border: 1px solid var(--gold-dim);
-  color: var(--gold);
+  color: var(--blue);
 }
-.secondary:hover { background: rgba(201,168,76,0.07); }
+.secondary:hover { background: rgba(61,107,255,0.07); }
 
 @media (max-width: 600px) {
   .contact { padding: 5rem 2rem; }

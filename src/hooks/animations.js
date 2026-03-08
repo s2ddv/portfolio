@@ -81,32 +81,29 @@ export function useGlobeAnimation(canvasRef, projects) {
     function draw() {
       ctx.clearRect(0, 0, W, H)
       const atm = ctx.createRadialGradient(cx, cy, R * .88, cx, cy, R * 1.18)
-      atm.addColorStop(0, 'rgba(201,168,76,0)')
-      atm.addColorStop(.5, 'rgba(201,168,76,0.05)')
-      atm.addColorStop(1, 'rgba(201,168,76,0)')
+      atm.addColorStop(0, 'rgba(61,107,255,0)')
+      atm.addColorStop(.5, 'rgba(61,107,255,0.05)')
+      atm.addColorStop(1, 'rgba(61,107,255,0)')
       ctx.fillStyle = atm
       ctx.beginPath()
       ctx.arc(cx, cy, R * 1.18, 0, Math.PI * 2)
       ctx.fill()
       const og = ctx.createRadialGradient(cx - R * .3, cy - R * .3, 0, cx, cy, R)
-      og.addColorStop(0, '#0e2040')
-      og.addColorStop(1, '#050c1a')
+      og.addColorStop(0, '#070d1a')
+      og.addColorStop(1, '#04080f')
       ctx.fillStyle = og
       ctx.beginPath()
       ctx.arc(cx, cy, R, 0, Math.PI * 2)
       ctx.fill()
-      ctx.strokeStyle = 'rgba(201,168,76,0.06)'
+      ctx.strokeStyle = 'rgba(61,107,255,0.06)'
       ctx.lineWidth = 0.5
       for (let lon = -180; lon <= 180; lon += 30) {
         ctx.beginPath()
         let f = true
         for (let lat = -90; lat <= 90; lat += 3) {
           const p = project(lon, lat)
-          if (p.visible) {
-            if (f) ctx.moveTo(p.sx, p.sy)
-            else ctx.lineTo(p.sx, p.sy)
-            f = false
-          } else f = true
+          if (p.visible) { if (f) ctx.moveTo(p.sx, p.sy); else ctx.lineTo(p.sx, p.sy); f = false }
+          else f = true
         }
         ctx.stroke()
       }
@@ -115,11 +112,8 @@ export function useGlobeAnimation(canvasRef, projects) {
         let f = true
         for (let lon = -180; lon <= 180; lon += 3) {
           const p = project(lon, lat)
-          if (p.visible) {
-            if (f) ctx.moveTo(p.sx, p.sy)
-            else ctx.lineTo(p.sx, p.sy)
-            f = false
-          } else f = true
+          if (p.visible) { if (f) ctx.moveTo(p.sx, p.sy); else ctx.lineTo(p.sx, p.sy); f = false }
+          else f = true
         }
         ctx.stroke()
       }
@@ -128,38 +122,36 @@ export function useGlobeAnimation(canvasRef, projects) {
         let started = false
         for (const [lo, la] of pts) {
           const p = project(lo, la)
-          if (!started) {
-            ctx.moveTo(p.sx, p.sy)
-            started = true
-          } else ctx.lineTo(p.sx, p.sy)
+          if (!started) { ctx.moveTo(p.sx, p.sy); started = true }
+          else ctx.lineTo(p.sx, p.sy)
         }
         ctx.closePath()
-        ctx.fillStyle = 'rgba(12,28,56,0.96)'
+        ctx.fillStyle = 'rgba(7,13,26,0.96)'
         ctx.fill()
-        ctx.strokeStyle = 'rgba(201,168,76,0.4)'
+        ctx.strokeStyle = 'rgba(61,107,255,0.4)'
         ctx.lineWidth = 1
         ctx.stroke()
       }
       const sp = ctx.createRadialGradient(cx - R * .38, cy - R * .32, 0, cx, cy, R)
-      sp.addColorStop(0, 'rgba(232,200,112,0.14)')
-      sp.addColorStop(.45, 'rgba(201,168,76,0.02)')
+      sp.addColorStop(0, 'rgba(107,143,255,0.14)')
+      sp.addColorStop(.45, 'rgba(61,107,255,0.02)')
       sp.addColorStop(1, 'transparent')
       ctx.fillStyle = sp
       ctx.beginPath()
       ctx.arc(cx, cy, R, 0, Math.PI * 2)
       ctx.fill()
-      ctx.strokeStyle = 'rgba(201,168,76,0.22)'
+      ctx.strokeStyle = 'rgba(61,107,255,0.22)'
       ctx.lineWidth = 1.5
       ctx.beginPath()
       ctx.arc(cx, cy, R, 0, Math.PI * 2)
       ctx.stroke()
       if (st.pulsing) {
-        ctx.strokeStyle = `rgba(201,168,76,${st.pulseAlpha})`
+        ctx.strokeStyle = `rgba(61,107,255,${st.pulseAlpha})`
         ctx.lineWidth = 2
         ctx.beginPath()
         ctx.arc(cx, cy, R + 10, 0, Math.PI * 2)
         ctx.stroke()
-        ctx.strokeStyle = `rgba(232,200,112,${st.pulseAlpha * .45})`
+        ctx.strokeStyle = `rgba(107,143,255,${st.pulseAlpha * .45})`
         ctx.lineWidth = 1
         ctx.beginPath()
         ctx.arc(cx, cy, R + 22, 0, Math.PI * 2)
@@ -178,16 +170,8 @@ export function useGlobeAnimation(canvasRef, projects) {
     }
     st.raf = requestAnimationFrame(loop)
 
-    const onDown = (e) => {
-      st.isDragging = true
-      st.spinning = false
-      st.lastMX = e.clientX
-      st.lastMY = e.clientY
-    }
-    const onUp = () => {
-      st.isDragging = false
-      setTimeout(() => { st.spinning = true }, 1800)
-    }
+    const onDown = (e) => { st.isDragging = true; st.spinning = false; st.lastMX = e.clientX; st.lastMY = e.clientY }
+    const onUp = () => { st.isDragging = false; setTimeout(() => { st.spinning = true }, 1800) }
     const onMove = (e) => {
       if (!st.isDragging) return
       const dx = e.clientX - st.lastMX, dy = e.clientY - st.lastMY
@@ -222,25 +206,16 @@ export function useCursorAnimation(dotRef, ringRef) {
     const tick = () => {
       const { mx, my } = pos.current
       let { rx, ry } = pos.current
-      if (dotRef.current) {
-        dotRef.current.style.left = mx + 'px'
-        dotRef.current.style.top = my + 'px'
-      }
+      if (dotRef.current) { dotRef.current.style.left = mx + 'px'; dotRef.current.style.top = my + 'px' }
       rx += (mx - rx) * 0.12
       ry += (my - ry) * 0.12
       pos.current.rx = rx
       pos.current.ry = ry
-      if (ringRef.current) {
-        ringRef.current.style.left = rx + 'px'
-        ringRef.current.style.top = ry + 'px'
-      }
+      if (ringRef.current) { ringRef.current.style.left = rx + 'px'; ringRef.current.style.top = ry + 'px' }
       raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
-    return () => {
-      window.removeEventListener('mousemove', onMove)
-      cancelAnimationFrame(raf)
-    }
+    return () => { window.removeEventListener('mousemove', onMove); cancelAnimationFrame(raf) }
   }, [dotRef, ringRef])
 
   return pos

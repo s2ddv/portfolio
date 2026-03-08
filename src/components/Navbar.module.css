@@ -6,8 +6,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.8rem 4rem;
-  border-bottom: 1px solid rgba(201,168,76,0.08);
-  background: rgba(5,12,26,0.75);
+  border-bottom: 1px solid rgba(61,107,255,0.08);
+  background: rgba(4,8,15,0.75);
   backdrop-filter: blur(20px);
 }
 
@@ -16,7 +16,7 @@
   font-size: 1.5rem;
   font-weight: 300;
   letter-spacing: 0.1em;
-  color: var(--gold);
+  color: var(--blue);
 }
 
 .logo span {
@@ -35,19 +35,11 @@
   text-transform: uppercase;
   color: var(--white-dim);
   transition: color 0.3s;
+  position: relative;
 }
 
 .links a:hover {
-  color: var(--gold);
-}
-
-@media (max-width: 600px) {
-  .nav { padding: 1.2rem 1.5rem; }
-  .links { gap: 1.2rem; }
-}
-
-.links a {
-  position: relative;
+  color: var(--blue);
 }
 
 .links a::after {
@@ -57,14 +49,19 @@
   left: 0;
   width: 0%;
   height: 1px;
-  background: var(--gold);
+  background: var(--blue);
   transition: width 0.3s ease;
 }
 
 .links a.active {
-  color: var(--gold);
+  color: var(--blue);
 }
 
 .links a.active::after {
   width: 100%;
+}
+
+@media (max-width: 600px) {
+  .nav { padding: 1.2rem 1.5rem; }
+  .links { gap: 1.2rem; }
 }

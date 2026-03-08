@@ -11,15 +11,15 @@
 .bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 70% 90% at 80% 50%, rgba(201,168,76,0.05) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 70% at 10% 30%, rgba(8,20,40,0.95) 0%, transparent 80%);
+    radial-gradient(ellipse 70% 90% at 80% 50%, rgba(61,107,255,0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 70% at 10% 30%, rgba(4,8,15,0.95) 0%, transparent 80%);
 }
 
 .grid {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(61,107,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61,107,255,0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -32,7 +32,7 @@
   font-size: 0.62rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold-dim);
+  color: var(--blue-dim);
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
@@ -42,7 +42,7 @@
   content: '';
   display: block;
   width: 40px; height: 1px;
-  background: var(--gold-dim);
+  background: var(--blue-dim);
 }
 
 .heading {
@@ -54,7 +54,7 @@
 }
 .heading em {
   font-style: italic;
-  color: var(--gold);
+  color: var(--blue);
 }
 
 .desc {
@@ -70,8 +70,8 @@
   display: inline-flex;
   align-items: center;
   padding: 1rem 2.2rem;
-  border: 1px solid var(--gold-dim);
-  color: var(--gold);
+  border: 1px solid var(--blue-dim);
+  color: var(--blue);
   font-size: 0.68rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -82,7 +82,7 @@
 .cta::before {
   content: '';
   position: absolute; inset: 0;
-  background: var(--gold);
+  background: var(--blue);
   transform: translateX(-101%);
   transition: transform 0.4s ease;
 }
@@ -101,12 +101,12 @@
 }
 
 .badge {
-  background: rgba(8,20,40,0.85);
-  border: 1px solid rgba(201,168,76,0.18);
+  background: rgba(4,8,15,0.85);
+  border: 1px solid rgba(61,107,255,0.18);
   padding: 1rem 1.5rem;
   font-size: 0.62rem;
   letter-spacing: 0.15em;
-  color: var(--gold-dim);
+  color: var(--blue-dim);
   backdrop-filter: blur(10px);
   animation: floatBadge 4s ease-in-out infinite;
 }
@@ -117,7 +117,7 @@
   font-family: 'Cormorant Garamond', serif;
   font-size: 2rem;
   font-weight: 300;
-  color: var(--gold-light);
+  color: var(--blue-light);
   line-height: 1;
   margin-bottom: 0.3rem;
 }
@@ -141,14 +141,14 @@
 
 .scrollLine {
   width: 40px; height: 1px;
-  background: var(--gold-dim);
+  background: var(--blue-dim);
   position: relative;
   overflow: hidden;
 }
 .scrollLine::after {
   content: '';
   position: absolute; inset: 0;
-  background: var(--gold);
+  background: var(--blue);
   animation: scanLine 2s ease-in-out infinite;
 }
 
@@ -163,7 +163,7 @@
 }
 
 @keyframes blink {
-  0%, 100% { border-color: #8a6d2f; }
+  0%, 100% { border-color: #1a3fff; }
   50% { border-color: transparent; }
 }
 
@@ -171,7 +171,7 @@
   display: inline-block;
   width: 2px;
   height: 0.8em;
-  background: #8a6d2f;
+  background: #1a3fff;
   margin-left: 2px;
   animation: blink 0.8s step-end infinite;
   vertical-align: middle;

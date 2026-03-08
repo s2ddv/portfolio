@@ -1,12 +1,12 @@
 :root {
-  --navy: #050c1a;
-  --navy-mid: #081428;
-  --navy-light: #0d1f3c;
-  --gold: #c9a84c;
-  --gold-light: #e8c870;
-  --gold-dim: #8a6d2f;
-  --white: #f0eade;
-  --white-dim: #a89f8c;
+  --dark: #04080f;
+  --dark-mid: #070d1a;
+  --dark-light: #0a1228;
+  --blue: #3d6bff;
+  --blue-light: #6b8fff;
+  --blue-dim: #1a3fff;
+  --white: #e8e8f0;
+  --white-dim: #8a8aaa;
 }
 
 *, *::before, *::after {
@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  background: var(--navy);
+  background: var(--dark);
   color: var(--white);
   font-family: 'DM Mono', monospace;
   overflow-x: hidden;
@@ -47,12 +47,8 @@ button {
 }
 
 @media (max-width: 960px) {
-  body {
-    cursor: auto;
-  }
-  a, button {
-    cursor: auto;
-  }
+  body { cursor: auto; }
+  a, button { cursor: auto; }
 }
 
 .noise {

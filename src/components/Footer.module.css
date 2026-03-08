@@ -1,6 +1,6 @@
 .footer {
   padding: 2rem 4rem;
-  border-top: 1px solid rgba(201,168,76,0.08);
+  border-top: 1px solid rgba(61,107,255,0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,7 +13,7 @@
   text-transform: uppercase;
 }
 
-.gold { color: var(--gold-dim); }
+.gold { color: var(--blue-dim); }
 
 @media (max-width: 600px) {
   .footer {
