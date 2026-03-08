@@ -4,12 +4,14 @@ import { useReveal } from '../hooks/useReveal'
 import { useParallax } from '../hooks/useParallax'
 import { useMagnet } from '../hooks/useMagnet'
 import { useParticles } from '../hooks/useParticles'
+import { useGlitch } from '../hooks/useGlitch'
 
 export default function Hero() {
   const ref = useReveal(0, 0.1)
   const { bgRef, gridRef } = useParallax()
   const ctaRef = useMagnet(0.3)
   const canvasRef = useRef(null)
+  const glitchRef = useGlitch()
   useParticles(canvasRef)
   const [typed, setTyped] = useState('')
   const fullText = 'Software Engineer'
@@ -37,7 +39,7 @@ export default function Hero() {
           {typed}
           {typed.length < fullText.length && <span className={styles.cursor} />}
         </div>
-        <h1>Building things<br />that <em>matter</em></h1>
+        <h1 ref={glitchRef}>Building things<br />that <em>matter</em></h1>
         <p className={styles.desc}>
           Crafting robust, elegant software with precision and purpose.
           From automation systems to full-featured apps — code is my craft.
