@@ -3,7 +3,7 @@ import Globe from './Globe'
 import { projects } from '../data/projects'
 import { useReveal } from '../hooks/useReveal'
 import { useFadeIn } from '../hooks/animations'
-import { useDrawUnderline } from '../hooks/useDrawUnderline'
+import { useDrawUnderline } from '../hooks/useDrawUnderLine'
 import { useMagnet } from '../hooks/useMagnet'
 import styles from './Projects.module.css'
 
