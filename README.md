@@ -12,16 +12,16 @@ npm run build
 
 ## Design
 
-A interface usa o nome como elemento principal, sem retrato ou espaço reservado para foto. Os projetos têm ilustrações feitas em CSS e SVG, com aparência clara e escura conforme a preferência do sistema. As cores são tokens em `src/index.css`:
+A interface usa o nome como elemento principal, sem retrato ou espaço reservado para foto. Os projetos têm ilustrações feitas em CSS e SVG, com aparência clara e escura conforme a preferência do sistema. A paleta usa azuis sóbrios inspirados na referência visual do Goldman Sachs, com tons próprios para preservar o contraste. As cores são tokens em `src/index.css`:
 
 | Papel | Cor |
 | --- | --- |
-| Fundo claro | `#f7f8fc` |
-| Superfície clara | `#ecf0f8` |
-| Texto principal | `#18243d` |
-| Texto secundário | `#46536b` |
-| Acento | `#334ed8` |
-| Fundo escuro | `#111827` |
+| Fundo claro | `#f7fafd` |
+| Superfície clara | `#e8f1f8` |
+| Texto principal | `#12304f` |
+| Texto secundário | `#3e5972` |
+| Acento | `#315d87` |
+| Fundo escuro | `#0b1f33` |
 
 O projeto inclui navegação por teclado, link para pular ao conteúdo, foco visível, alvos de ação confortáveis, layout responsivo e respeito à preferência por movimento reduzido.
 

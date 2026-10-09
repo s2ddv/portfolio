@@ -51,9 +51,9 @@ export default function App() {
     </header>
     <main id="conteudo">
       <section className="hero" aria-labelledby="hero-title"><div className="hero-inner">
-        <p className="hero-kicker"><span /> Engenheiro de software · Produto e dados</p>
+        <p className="hero-kicker"><span /> Quantitative Analyst · Modelos e dados</p>
         <h1 id="hero-title">Samuel<br /><span>Barbosa</span><span className="hero-period">.</span></h1>
-        <div className="hero-bottom"><p>Construo experiências digitais e sistemas que tornam problemas complexos mais claros.</p><a className="primary-link" href="#projetos">Conheça meu trabalho <span aria-hidden="true">↗</span></a></div>
+        <div className="hero-bottom"><p>Transformo dados, modelos e sistemas em análises mais claras para decisões melhores.</p><a className="primary-link" href="#projetos">Conheça meu trabalho <span aria-hidden="true">↗</span></a></div>
       </div></section>
       <section className="about section-wrap" id="sobre" aria-labelledby="about-title">
         <div className="section-meta"><span>01</span><span>Sobre</span></div>
