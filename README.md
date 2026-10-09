@@ -12,17 +12,16 @@ npm run build
 
 ## Design
 
-A interface usa uma paleta de azul profundo e verde água. As cores são tokens em `src/index.css`:
+A interface usa o nome como elemento principal, sem retrato ou espaço reservado para foto. Os projetos têm ilustrações feitas em CSS e SVG, com aparência clara e escura conforme a preferência do sistema. As cores são tokens em `src/index.css`:
 
 | Papel | Cor |
 | --- | --- |
-| Fundo | `#0b1120` |
-| Superfície elevada | `#111b2e` |
-| Texto principal | `#f3f6fa` |
-| Texto secundário | `#aab8cb` |
-| Acento | `#82d7c6` |
-| Divisórias | `#304055` |
-| Gráfico quant | `#a9b8ed` |
+| Fundo claro | `#f7f8fc` |
+| Superfície clara | `#ecf0f8` |
+| Texto principal | `#18243d` |
+| Texto secundário | `#46536b` |
+| Acento | `#334ed8` |
+| Fundo escuro | `#111827` |
 
 O projeto inclui navegação por teclado, link para pular ao conteúdo, foco visível, alvos de ação confortáveis, layout responsivo e respeito à preferência por movimento reduzido.
 
